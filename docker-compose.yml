@@ -1,0 +1,41 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=calikdb;Username=calik;Password=calik123
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - calik-network
+
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: calikdb
+      POSTGRES_USER: calik
+      POSTGRES_PASSWORD: calik123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U calik -d calikdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - calik-network
+
+volumes:
+  postgres_data:
+
+networks:
+  calik-network:
+    driver: bridge

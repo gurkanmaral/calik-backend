@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{900E97A0-60F2-4BC3-9A05-F6A404D57490}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalikBackend.API", "src\CalikBackend.API\CalikBackend.API.csproj", "{697C6BCF-9908-493C-A434-0F4CCA401656}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalikBackend.Domain", "src\CalikBackend.Domain\CalikBackend.Domain.csproj", "{3D11677A-131B-4BE6-AA69-FAE71A00FC6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalikBackend.Application", "src\CalikBackend.Application\CalikBackend.Application.csproj", "{A564CF16-5488-4DF0-9D07-DA8685B22473}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalikBackend.Infrastructure", "src\CalikBackend.Infrastructure\CalikBackend.Infrastructure.csproj", "{545CECDE-E061-4995-92C0-B9B802B14A83}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{697C6BCF-9908-493C-A434-0F4CCA401656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{697C6BCF-9908-493C-A434-0F4CCA401656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{697C6BCF-9908-493C-A434-0F4CCA401656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{697C6BCF-9908-493C-A434-0F4CCA401656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D11677A-131B-4BE6-AA69-FAE71A00FC6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D11677A-131B-4BE6-AA69-FAE71A00FC6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D11677A-131B-4BE6-AA69-FAE71A00FC6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D11677A-131B-4BE6-AA69-FAE71A00FC6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A564CF16-5488-4DF0-9D07-DA8685B22473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A564CF16-5488-4DF0-9D07-DA8685B22473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A564CF16-5488-4DF0-9D07-DA8685B22473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A564CF16-5488-4DF0-9D07-DA8685B22473}.Release|Any CPU.Build.0 = Release|Any CPU
+		{545CECDE-E061-4995-92C0-B9B802B14A83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{545CECDE-E061-4995-92C0-B9B802B14A83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{545CECDE-E061-4995-92C0-B9B802B14A83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{545CECDE-E061-4995-92C0-B9B802B14A83}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{697C6BCF-9908-493C-A434-0F4CCA401656} = {900E97A0-60F2-4BC3-9A05-F6A404D57490}
+		{3D11677A-131B-4BE6-AA69-FAE71A00FC6A} = {900E97A0-60F2-4BC3-9A05-F6A404D57490}
+		{A564CF16-5488-4DF0-9D07-DA8685B22473} = {900E97A0-60F2-4BC3-9A05-F6A404D57490}
+		{545CECDE-E061-4995-92C0-B9B802B14A83} = {900E97A0-60F2-4BC3-9A05-F6A404D57490}
+	EndGlobalSection
+EndGlobal
