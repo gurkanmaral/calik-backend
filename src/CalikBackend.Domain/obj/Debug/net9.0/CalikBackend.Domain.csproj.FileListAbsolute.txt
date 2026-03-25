@@ -10,3 +10,4 @@
 /Users/gurkanmaral/Desktop/calik-backend/src/CalikBackend.Domain/obj/Debug/net9.0/refint/CalikBackend.Domain.dll
 /Users/gurkanmaral/Desktop/calik-backend/src/CalikBackend.Domain/obj/Debug/net9.0/CalikBackend.Domain.pdb
 /Users/gurkanmaral/Desktop/calik-backend/src/CalikBackend.Domain/obj/Debug/net9.0/ref/CalikBackend.Domain.dll
+/Users/gurkanmaral/Desktop/calik-backend/src/CalikBackend.Domain/obj/Debug/net9.0/CalikBackend.Domain.sourcelink.json

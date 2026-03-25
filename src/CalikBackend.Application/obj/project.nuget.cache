@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "HV3Xp8PNLCk=",
+  "dgSpecHash": "0wzUAuBG8Bg=",
   "success": true,
   "projectFilePath": "/Users/gurkanmaral/Desktop/calik-backend/src/CalikBackend.Application/CalikBackend.Application.csproj",
   "expectedPackageFiles": [
+    "/Users/gurkanmaral/.nuget/packages/fluentvalidation/11.11.0/fluentvalidation.11.11.0.nupkg.sha512",
+    "/Users/gurkanmaral/.nuget/packages/fluentvalidation.dependencyinjectionextensions/11.11.0/fluentvalidation.dependencyinjectionextensions.11.11.0.nupkg.sha512",
+    "/Users/gurkanmaral/.nuget/packages/mediatr/12.4.1/mediatr.12.4.1.nupkg.sha512",
+    "/Users/gurkanmaral/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
     "/Users/gurkanmaral/.nuget/packages/microsoft.aspnetcore.cryptography.internal/9.0.3/microsoft.aspnetcore.cryptography.internal.9.0.3.nupkg.sha512",
     "/Users/gurkanmaral/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/9.0.3/microsoft.aspnetcore.cryptography.keyderivation.9.0.3.nupkg.sha512",
     "/Users/gurkanmaral/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/9.0.3/microsoft.aspnetcore.identity.entityframeworkcore.9.0.3.nupkg.sha512",

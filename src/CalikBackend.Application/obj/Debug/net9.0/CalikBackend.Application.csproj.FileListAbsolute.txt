@@ -13,3 +13,4 @@
 /Users/gurkanmaral/Desktop/calik-backend/src/CalikBackend.Application/obj/Debug/net9.0/refint/CalikBackend.Application.dll
 /Users/gurkanmaral/Desktop/calik-backend/src/CalikBackend.Application/obj/Debug/net9.0/CalikBackend.Application.pdb
 /Users/gurkanmaral/Desktop/calik-backend/src/CalikBackend.Application/obj/Debug/net9.0/ref/CalikBackend.Application.dll
+/Users/gurkanmaral/Desktop/calik-backend/src/CalikBackend.Application/obj/Debug/net9.0/CalikBackend.Application.sourcelink.json

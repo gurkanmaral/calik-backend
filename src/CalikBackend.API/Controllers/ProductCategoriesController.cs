@@ -1,10 +1,12 @@
 using CalikBackend.Application.DTOs.Products;
-using CalikBackend.Domain.Entities;
-using CalikBackend.Infrastructure.Data;
-using CalikBackend.Infrastructure.Extensions;
+using CalikBackend.Application.Features.ProductCategories.Commands.CreateCategory;
+using CalikBackend.Application.Features.ProductCategories.Commands.DeleteCategory;
+using CalikBackend.Application.Features.ProductCategories.Commands.UpdateCategory;
+using CalikBackend.Application.Features.ProductCategories.Queries.GetCategories;
+using CalikBackend.Application.Features.ProductCategories.Queries.GetCategoryById;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace CalikBackend.API.Controllers;
 
@@ -12,12 +14,9 @@ namespace CalikBackend.API.Controllers;
 [Route("api/product-categories")]
 public class ProductCategoriesController : ControllerBase
 {
-    private readonly AppDbContext _db;
+    private readonly ISender _sender;
 
-    public ProductCategoriesController(AppDbContext db)
-    {
-        _db = db;
-    }
+    public ProductCategoriesController(ISender sender) => _sender = sender;
 
     [HttpGet]
     public async Task<IActionResult> GetAll(
@@ -25,112 +24,30 @@ public class ProductCategoriesController : ControllerBase
         [FromQuery] bool sortDesc = false,
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 10)
-    {
-        var query = _db.ProductCategories.AsQueryable();
-
-        if (!string.IsNullOrWhiteSpace(search))
-            query = query.Where(c =>
-                c.Name.Contains(search) ||
-                (c.Description != null && c.Description.Contains(search)));
-
-        query = sortDesc ? query.OrderByDescending(c => c.Name) : query.OrderBy(c => c.Name);
-
-        var result = await query
-            .Select(c => new CategoryResponse
-            {
-                Id = c.Id,
-                Name = c.Name,
-                Description = c.Description,
-                ImageUrl = c.ImageUrl,
-                CreatedAt = c.CreatedAt
-            })
-            .ToPagedResultAsync(page, pageSize);
-
-        return Ok(result);
-    }
+        => Ok(await _sender.Send(new GetCategoriesQuery(search, sortDesc, page, pageSize)));
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(Guid id)
-    {
-        var category = await _db.ProductCategories.FindAsync(id);
-        if (category == null)
-            return NotFound(new { message = "Category not found." });
-
-        return Ok(new CategoryResponse
-        {
-            Id = category.Id,
-            Name = category.Name,
-            Description = category.Description,
-            ImageUrl = category.ImageUrl,
-            CreatedAt = category.CreatedAt
-        });
-    }
+        => Ok(await _sender.Send(new GetCategoryByIdQuery(id)));
 
     [HttpPost]
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Create([FromBody] CreateCategoryRequest request)
     {
-        var category = new ProductCategory
-        {
-            Name = request.Name,
-            Description = request.Description,
-            ImageUrl = request.ImageUrl
-        };
-
-        _db.ProductCategories.Add(category);
-        await _db.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(GetById), new { id = category.Id }, new CategoryResponse
-        {
-            Id = category.Id,
-            Name = category.Name,
-            Description = category.Description,
-            ImageUrl = category.ImageUrl,
-            CreatedAt = category.CreatedAt
-        });
+        var result = await _sender.Send(new CreateCategoryCommand(request.Name, request.Description, request.ImageUrl));
+        return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
     }
 
     [HttpPut("{id}")]
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Update(Guid id, [FromBody] UpdateCategoryRequest request)
-    {
-        var category = await _db.ProductCategories.FindAsync(id);
-        if (category == null)
-            return NotFound(new { message = "Category not found." });
-
-        category.Name = request.Name;
-        category.Description = request.Description;
-        category.ImageUrl = request.ImageUrl;
-
-        await _db.SaveChangesAsync();
-
-        return Ok(new CategoryResponse
-        {
-            Id = category.Id,
-            Name = category.Name,
-            Description = category.Description,
-            ImageUrl = category.ImageUrl,
-            CreatedAt = category.CreatedAt
-        });
-    }
+        => Ok(await _sender.Send(new UpdateCategoryCommand(id, request.Name, request.Description, request.ImageUrl)));
 
     [HttpDelete("{id}")]
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Delete(Guid id)
     {
-        var category = await _db.ProductCategories
-            .Include(c => c.Products)
-            .FirstOrDefaultAsync(c => c.Id == id);
-
-        if (category == null)
-            return NotFound(new { message = "Category not found." });
-
-        if (category.Products.Count > 0)
-            return Conflict(new { message = "Cannot delete category with existing products." });
-
-        _db.ProductCategories.Remove(category);
-        await _db.SaveChangesAsync();
-
+        await _sender.Send(new DeleteCategoryCommand(id));
         return NoContent();
     }
 }

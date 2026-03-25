@@ -17,3 +17,4 @@
 /Users/gurkanmaral/Desktop/calik-backend/src/CalikBackend.Infrastructure/obj/Debug/net9.0/CalikBackend.Infrastructure.pdb
 /Users/gurkanmaral/Desktop/calik-backend/src/CalikBackend.Infrastructure/obj/Debug/net9.0/CalikBackend.Infrastructure.genruntimeconfig.cache
 /Users/gurkanmaral/Desktop/calik-backend/src/CalikBackend.Infrastructure/obj/Debug/net9.0/ref/CalikBackend.Infrastructure.dll
+/Users/gurkanmaral/Desktop/calik-backend/src/CalikBackend.Infrastructure/obj/Debug/net9.0/CalikBackend.Infrastructure.sourcelink.json

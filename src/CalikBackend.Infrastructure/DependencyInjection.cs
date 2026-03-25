@@ -1,7 +1,9 @@
 using System.Text;
 using CalikBackend.Application.Interfaces;
+using CalikBackend.Application.Repositories.Interfaces;
 using CalikBackend.Domain.Entities;
 using CalikBackend.Infrastructure.Data;
+using CalikBackend.Infrastructure.Repositories;
 using CalikBackend.Infrastructure.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -52,6 +54,13 @@ public static class DependencyInjection
 
         services.AddScoped<IJwtService, JwtService>();
         services.AddScoped<ISmsService, ConsoleSmsService>();
+
+        services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
+        services.AddScoped<ICustomerRepository, CustomerRepository>();
+        services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+        services.AddScoped<IAuthRepository, AuthRepository>();
+        services.AddScoped<IDashboardRepository, DashboardRepository>();
 
         return services;
     }
