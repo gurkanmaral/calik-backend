@@ -30,8 +30,6 @@ logs/
 # Environment / secrets
 .env
 .env.*
-appsettings.Production.json
-appsettings.Development.json
 
 # NuGet
 *.nupkg
