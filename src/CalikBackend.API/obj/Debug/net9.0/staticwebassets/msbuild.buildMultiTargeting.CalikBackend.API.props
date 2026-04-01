@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../build/CalikBackend.API.props" />
-</Project>
