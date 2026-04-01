@@ -11,7 +11,7 @@ echo "🛑 Stopping containers..."
 docker compose -f docker-compose.production.yml down 
 
 echo "🧹 Cleaning old images..."
-docker image prune -f
+docker image prune
 
 echo "🔨 Building image (no cache)..."
 docker compose -f docker-compose.production.yml build --no-cache
