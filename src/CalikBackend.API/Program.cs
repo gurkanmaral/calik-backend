@@ -18,12 +18,13 @@ builder.Services.AddProblemDetails();
 // CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend", policy =>
-        policy
-              .AllowAnyHeader()
-              .AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowCredentials());
+    options.AddPolicy("MyPolicy",
+        builder => builder
+            .SetIsOriginAllowed(hostName => true)
+            //.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials());
 });
 
 builder.Services.AddControllers();
