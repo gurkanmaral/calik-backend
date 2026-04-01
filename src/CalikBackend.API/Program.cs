@@ -113,12 +113,16 @@ using (var scope = app.Services.CreateScope())
     await DataSeeder.SeedAsync(scope.ServiceProvider);
 }
 
+/*
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CalikBackend API v1"));
-}
+}*/
+app.MapOpenApi();
+app.UseSwagger();
+app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CalikBackend API v1"));
 
 app.UseExceptionHandler();
 //app.UseHttpsRedirection();
