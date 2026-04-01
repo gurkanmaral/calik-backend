@@ -1,0 +1,44 @@
+# Build outputs
+bin/
+obj/
+out/
+
+# Publish output
+/app/publish/
+
+# .NET
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.DotSettings.user
+
+# Rider / JetBrains
+.idea/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment / secrets
+.env
+.env.*
+appsettings.Production.json
+appsettings.Development.json
+
+# NuGet
+*.nupkg
+.nuget/
+
+# Docker
+docker-compose.override.yml
+
+# Claude Code
+.claude/
