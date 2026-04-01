@@ -17,7 +17,7 @@ echo "🔨 Building image (no cache)..."
 docker compose -f docker-compose.production.yml build --no-cache
 
 echo "▶️ Starting containers..."
-docker compose up -f docker-compose.production.yml -d
+docker compose -f docker-compose.production.yml up -d
 
 echo "⏳ Waiting for services..."
 sleep 5
