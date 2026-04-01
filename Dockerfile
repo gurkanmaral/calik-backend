@@ -4,6 +4,9 @@ WORKDIR /src
 
 COPY CalikBackend.sln .
 COPY src/CalikBackend.API/CalikBackend.API.csproj src/CalikBackend.API/
+COPY src/CalikBackend.Domain/CalikBackend.Domain.csproj src/CalikBackend.Domain/
+COPY src/CalikBackend.Application/CalikBackend.Application.csproj src/CalikBackend.Application/
+COPY src/CalikBackend.Infrastructure/CalikBackend.Infrastructure.csproj src/CalikBackend.Infrastructure/
 RUN dotnet restore
 
 COPY . .
